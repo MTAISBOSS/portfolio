@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | Mohammad Taher Ahmadi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/blog.css" />
+    <style>
+      :root {
+        --bg-primary: #0a0a0a;
+        --bg-secondary: #111111;
+        --bg-card: #161616;
+        --text-primary: #ffffff;
+        --text-secondary: #a1a1a1;
+        --text-muted: #6b6b6b;
+        --accent-lime: #a3e635;
+        --accent-orange: #fb923c;
+        --accent-coral: #f97316;
+        --accent-yellow: #fbbf24;
+        --accent-teal: #14b8a6;
+        --border-subtle: #222222;
+        --border-hover: #333333;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        cursor: none;
+      }
+
+      /* Custom Circle Cursor (legacy) and new cursor classes */
+      .custom-cursor,
+      .cursor {
+        position: fixed;
+        width: 24px;
+        height: 24px;
+        border: 2px solid var(--accent-lime);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        transform: translate(-50%, -50%);
+        transition:
+          transform 0.15s ease,
+          width 0.15s ease,
+          height 0.15s ease,
+          background 0.15s ease;
+        mix-blend-mode: difference;
+      }
+
+      .custom-cursor.hover,
+      .cursor.hover {
+        width: 48px;
+        height: 48px;
+        background: rgba(163, 230, 53, 0.15);
+      }
+
+      .cursor-dot {
+        position: fixed;
+        width: 6px;
+        height: 6px;
+        background: var(--accent-lime);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10001;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.15s ease;
+      }
+
+      a,
+      button,
+      .blog-card,
+      .tag {
+        cursor: none;
+      }
+
+      /* Floating Particles */
+      .particles-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0;
+        animation: float-particle linear infinite;
+      }
+
+      @keyframes float-particle {
+        0% {
+          opacity: 0;
+          transform: translateY(100vh) rotate(0deg);
+        }
+        10% {
+          opacity: 0.6;
+        }
+        90% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-100px) rotate(360deg);
+        }
+      }
+
+      .particle-dust {
+        width: 3px;
+        height: 3px;
+        background: rgba(163, 230, 53, 0.4);
+        box-shadow: 0 0 6px rgba(163, 230, 53, 0.3);
+      }
+
+      .particle-meteor {
+        width: 4px;
+        height: 4px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-orange),
+          var(--accent-yellow)
+        );
+        box-shadow:
+          0 0 10px rgba(251, 146, 60, 0.5),
+          0 0 20px rgba(251, 146, 60, 0.2);
+      }
+
+      .particle-glow {
+        width: 2px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+      }
+
+      #loader {
+        position: fixed;
+        inset: 0;
+        background: var(--bg-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition:
+          opacity 0.6s ease,
+          visibility 0.6s ease;
+      }
+      #loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loader-ring {
+        width: 48px;
+        height: 48px;
+        border: 3px solid var(--border-subtle);
+        border-top-color: var(--accent-lime);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 20px 0;
+        background: rgba(10, 10, 10, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+      }
+      .nav-links a {
+        font-size: 14px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--text-primary);
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+      }
+
+      .section-label {
+        font-size: 12px;
+        font-family: "JetBrains Mono", monospace;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent-lime);
+        margin-bottom: 16px;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 6px 14px;
+        font-size: 11px;
+        font-family: "JetBrains Mono", monospace;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        border-radius: 6px;
+        text-transform: uppercase;
+      }
+      .tag-lime {
+        color: var(--accent-lime);
+        border-color: rgba(163, 230, 53, 0.3);
+      }
+      .tag-orange {
+        color: var(--accent-orange);
+        border-color: rgba(251, 146, 60, 0.3);
+      }
+      .tag-coral {
+        color: var(--accent-coral);
+        border-color: rgba(249, 115, 22, 0.3);
+      }
+      .tag-teal {
+        color: var(--accent-teal);
+        border-color: rgba(20, 184, 166, 0.3);
+      }
+
+      .blog-card {
+        display: block;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: 16px;
+        overflow: hidden;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .blog-card:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-6px);
+      }
+
+      .blog-image {
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .blog-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .blog-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .blog-content {
+        padding: 24px;
+      }
+
+      section {
+        padding: 120px 24px;
+      }
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      footer {
+        padding: 48px 24px;
+        border-top: 1px solid var(--border-subtle);
+        text-align: center;
+      }
+      .footer-text {
+        font-size: 14px;
+        color: var(--text-muted);
+        font-family: "JetBrains Mono", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content"></div>
+
+    <div id="page-content" style="display: none">
+      <main style="padding-top: 100px">
+        <section style="padding-top: 60px; padding-bottom: 80px">
+          <div class="section-inner">
+            <p class="section-label fade-in">Writing</p>
+            <h1
+              class="fade-in"
+              style="
+                font-size: clamp(40px, 6vw, 56px);
+                font-weight: 700;
+                margin: 0 0 16px 0;
+                letter-spacing: -1px;
+              "
+            >
+              Dev Blog
+            </h1>
+            <p
+              class="fade-in"
+              style="
+                font-size: 18px;
+                color: var(--text-secondary);
+                max-width: 600px;
+                margin: 0;
+              "
+            >
+              Technical articles about game engine development, graphics
+              programming, and systems design.
+            </p>
+          </div>
+        </section>
+
+        <section style="padding-top: 0">
+          <div class="section-inner">
+            <div
+              id="posts-grid"
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 24px;
+              "
+            ></div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p class="footer-text">
+          © 2025 Mohammad Taher Ahmadi // Game Engine &amp; Graphics Developer
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      async function loadPartial(url) {
+        const response = await fetch(url);
+        let html = await response.text();
+        html = html.replace(
+          /<script\b[^>]*>\s*\/\/[^<]*For SVG support[\s\S]*?<\/script>/gi,
+          "",
+        );
+        html = html.replace(
+          /<script\b[^>]*>\s*(\/\*.*?\*\/|\/\/.*?\n)*\s*if\s*\(\s*['\"]WebSocket['\"]\s+in\s+window\s*\)[\s\S]*?<\/script>/gi,
+          "",
+        );
+        const container = document.createElement("div");
+        container.innerHTML = html;
+        const scripts = Array.from(container.querySelectorAll("script"));
+        scripts.forEach((s) => s.remove());
+        const content = document.getElementById("content");
+        while (container.firstChild) content.appendChild(container.firstChild);
+        for (const oldScript of scripts) {
+          const newScript = document.createElement("script");
+          if (oldScript.type) newScript.type = oldScript.type;
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+            newScript.async = false;
+          } else if (oldScript.textContent.trim())
+            newScript.textContent = oldScript.textContent;
+          document.body.appendChild(newScript);
+        }
+      }
+
+      async function loadAllPartials() {
+        const partials = [
+          "../partials/loading.html",
+          "../partials/nav.html",
+          "../partials/particles.html",
+          "../partials/curser.html",
+          "../partials/pagescript.html",
+        ];
+        for (const p of partials) await loadPartial(p);
+      }
+
+      function renderPosts() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+        );
+        document
+          .querySelectorAll(".fade-in")
+          .forEach((el) => observer.observe(el));
+        function hideLoaderAndReveal() {
+          setTimeout(() => {
+            const l = document.getElementById("loader");
+            if (l) l.classList.add("hidden");
+            document
+              .querySelectorAll(".fade-in")
+              .forEach((el) => el.classList.add("visible"));
+          }, 400);
+        }
+        if (document.readyState === "complete") hideLoaderAndReveal();
+        else window.addEventListener("load", hideLoaderAndReveal);
+
+        (function () {
+          const grid = document.getElementById("posts-grid");
+          if (!grid) return;
+          fetch("./data/posts.json")
+            .then((r) => r.json())
+            .then((data) => {
+              data.forEach((p) => {
+                const a = document.createElement("a");
+                a.className = "blog-card fade-in";
+                a.href = p.url;
+                a.innerHTML = `
+                      <div class="blog-image" style="background: ${p.gradient};">
+                        <div class="blog-icon" style="background: ${p.iconGradient};">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line></svg>
+                        </div>
+                      </div>
+                      <div class="blog-content">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                          <span style="font-size: 12px; font-family: 'JetBrains Mono', monospace; color: var(--accent-lime);">${p.date}</span>
+                          <span style="color: var(--text-muted);">•</span>
+                          <span style="font-size: 12px; color: var(--text-muted);">${p.readTime}</span>
+                        </div>
+                        <h3 style="font-size: 20px; margin: 0 0 8px 0; font-weight: 600; color: var(--text-primary);">${p.title}</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7; margin: 0 0 16px 0;">${p.excerpt}</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">${p.tags.map((t) => `<span class="tag ${t === "C++" ? "tag-lime" : ""} ${t === "Unity" ? "tag-coral" : ""}">${t}</span>`).join("")}</div>
+                      </div>`;
+                grid.appendChild(a);
+              });
+            })
+            .catch((err) => console.error("Failed to load posts.json", err));
+        })();
+      }
+
+      (async function () {
+        await loadAllPartials();
+        const page = document.getElementById("page-content");
+        const content = document.getElementById("content");
+        if (page && content) {
+          while (page.firstChild) content.appendChild(page.firstChild);
+          renderPosts();
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,665 @@
+<section id="projects">
+  <main style="padding-top: 100px">
+    <style>
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .project-card-entrance {
+        animation: slideInUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+
+      .project-card-entrance.delay-1 {
+        animation-delay: 0.05s;
+      }
+      .project-card-entrance.delay-2 {
+        animation-delay: 0.1s;
+      }
+      .project-card-entrance.delay-3 {
+        animation-delay: 0.15s;
+      }
+
+      .project-image-carousel {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .project-image-slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .project-image-slide.active {
+        opacity: 1;
+        position: relative;
+      }
+
+      .project-image-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image-indicators {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 6px;
+        z-index: 10;
+      }
+
+      .image-indicator {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .image-indicator.active {
+        background: var(--accent-lime);
+        width: 12px;
+        border-radius: 3px;
+      }
+
+      .image-nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 11;
+        transition: all 0.2s ease;
+        opacity: 0;
+      }
+
+      .project-card:hover .image-nav-button {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      .image-nav-button:hover {
+        background: rgba(163, 230, 53, 0.8);
+      }
+
+      .image-nav-button.prev {
+        left: 8px;
+      }
+
+      .image-nav-button.next {
+        right: 8px;
+      }
+    </style>
+    <section style="padding-top: 60px; padding-bottom: 80px">
+      <div class="section-inner">
+        <p class="section-label fade-in">Portfolio</p>
+        <h1
+          class="fade-in"
+          style="
+            font-size: clamp(40px, 6vw, 56px);
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            letter-spacing: -1px;
+          "
+        >
+          Selected Projects
+        </h1>
+        <p
+          class="fade-in"
+          style="
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0;
+          "
+        >
+          Game engines, graphics experiments, and gameplay systems built from
+          scratch.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding-top: 0">
+      <div class="section-inner">
+        <div
+          id="projects-grid"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+          "
+        ></div>
+      </div>
+    </section>
+
+    <section style="background: var(--bg-secondary)">
+      <div class="section-inner">
+        <p class="section-label fade-in">Deep Dives</p>
+        <h2 class="fade-in">Technical Showcases</h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+          "
+        >
+          <div class="highlight-card fade-in">
+            <p
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 12px;
+                color: var(--accent-lime);
+                margin: 0 0 12px 0;
+              "
+            >
+              01
+            </p>
+            <h3 style="font-size: 18px; margin: 0 0 8px 0; font-weight: 600">
+              ECS Engine
+            </h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              Entity Component System with modular architecture and efficient
+              memory layout.
+            </p>
+          </div>
+          <div class="highlight-card fade-in">
+            <p
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 12px;
+                color: var(--accent-orange);
+                margin: 0 0 12px 0;
+              "
+            >
+              02
+            </p>
+            <h3 style="font-size: 18px; margin: 0 0 8px 0; font-weight: 600">
+              Physics Engine
+            </h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              Collision detection, rigidbody dynamics, and force integration
+              systems.
+            </p>
+          </div>
+          <div class="highlight-card fade-in">
+            <p
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 12px;
+                color: var(--accent-coral);
+                margin: 0 0 12px 0;
+              "
+            >
+              03
+            </p>
+            <h3 style="font-size: 18px; margin: 0 0 8px 0; font-weight: 600">
+              Low-Level Rendering
+            </h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              OpenGL, shaders, ray tracing, and post-processing effects.
+            </p>
+          </div>
+          <div class="highlight-card fade-in">
+            <p
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 12px;
+                color: var(--accent-yellow);
+                margin: 0 0 12px 0;
+              "
+            >
+              04
+            </p>
+            <h3 style="font-size: 18px; margin: 0 0 8px 0; font-weight: 600">
+              Multiplayer Systems
+            </h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              REST APIs, WebSockets, chat, matchmaking, and real-time features.
+            </p>
+          </div>
+          <div class="highlight-card fade-in">
+            <p
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 12px;
+                color: var(--accent-lime);
+                margin: 0 0 12px 0;
+              "
+            >
+              05
+            </p>
+            <h3 style="font-size: 18px; margin: 0 0 8px 0; font-weight: 600">
+              Engine Tooling
+            </h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              Editor tools, debugging utilities, and asset pipelines.
+            </p>
+          </div>
+          <div class="highlight-card fade-in">
+            <p
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 12px;
+                color: var(--accent-orange);
+                margin: 0 0 12px 0;
+              "
+            >
+              06
+            </p>
+            <h3 style="font-size: 18px; margin: 0 0 8px 0; font-weight: 600">
+              Performance Systems
+            </h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              Data-oriented design, memory management, and optimization.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <p class="section-label fade-in">Tech Stack</p>
+        <h2 class="fade-in">Technical Expertise</h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+          "
+        >
+          <div class="skill-card fade-in">
+            <h3
+              style="
+                font-size: 16px;
+                margin: 0 0 16px 0;
+                font-weight: 600;
+                color: var(--accent-lime);
+              "
+            >
+              Engine &amp; Systems
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <span class="tag">ECS</span
+              ><span class="tag">Data-Oriented Design</span
+              ><span class="tag">Scene Management</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in">
+            <h3
+              style="
+                font-size: 16px;
+                margin: 0 0 16px 0;
+                font-weight: 600;
+                color: var(--accent-orange);
+              "
+            >
+              Graphics
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <span class="tag tag-orange">OpenGL</span
+              ><span class="tag tag-orange">GLSL</span
+              ><span class="tag tag-orange">Ray Tracing</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in">
+            <h3
+              style="
+                font-size: 16px;
+                margin: 0 0 16px 0;
+                font-weight: 600;
+                color: var(--accent-coral);
+              "
+            >
+              Physics
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <span class="tag tag-coral">AABB/OBB</span
+              ><span class="tag tag-coral">SAT</span
+              ><span class="tag tag-coral">Rigidbody</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in">
+            <h3 style="font-size: 16px; margin: 0 0 16px 0; font-weight: 600">
+              Programming
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <span class="tag tag-lime">C++</span
+              ><span class="tag tag-lime">C#</span
+              ><span class="tag">Python</span
+              ><span class="tag">JavaScript</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in">
+            <h3
+              style="
+                font-size: 16px;
+                margin: 0 0 16px 0;
+                font-weight: 600;
+                color: var(--accent-teal);
+              "
+            >
+              Networking
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <span class="tag tag-teal">REST APIs</span
+              ><span class="tag tag-teal">WebSockets</span
+              ><span class="tag tag-teal">Real-Time</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in">
+            <h3
+              style="
+                font-size: 16px;
+                margin: 0 0 16px 0;
+                font-weight: 600;
+                color: var(--accent-yellow);
+              "
+            >
+              Tools
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <span class="tag tag-coral">Unity</span
+              ><span class="tag">Git</span><span class="tag">ImGui</span
+              ><span class="tag">Blender</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</section>
+<script>
+  function renderProjects() {
+    // Scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+    );
+    
+    // Initial observe for existing fade-in elements
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+
+    // Loading screen hide (works even if load already fired)
+    function hideLoaderAndReveal() {
+      setTimeout(() => {
+        const l = document.getElementById("loader");
+        if (l) l.classList.add("hidden");
+        document
+          .querySelectorAll(".fade-in")
+          .forEach((el) => el.classList.add("visible"));
+      }, 400);
+    }
+    if (document.readyState === "complete") hideLoaderAndReveal();
+    else window.addEventListener("load", hideLoaderAndReveal);
+
+    // Render projects from JSON data with pagination
+    (function () {
+      const grid = document.getElementById("projects-grid");
+      if (!grid) return;
+
+      let allProjects = [];
+      let displayedCount = 0;
+      const itemsPerPage = 3;
+      let isExpanded = false;
+
+      function createProjectElement(project) {
+        const el = document.createElement("div");
+        el.className = "project-card fade-in";
+        
+        const hasImages = project.images && project.images.length > 0;
+        
+        let projectImageHTML = '';
+        if (hasImages) {
+          // Create carousel with images
+          projectImageHTML = `
+            <div class="project-image">
+              <div class="project-image-carousel">
+                ${project.images.map((img, idx) => `
+                  <div class="project-image-slide ${idx === 0 ? 'active' : ''}">
+                    <img src="${img}" alt="Project image ${idx + 1}" />
+                  </div>
+                `).join('')}
+              </div>
+              ${project.images.length > 1 ? `
+                <div class="image-indicators">
+                  ${project.images.map((_, idx) => `
+                    <div class="image-indicator ${idx === 0 ? 'active' : ''}" data-index="${idx}"></div>
+                  `).join('')}
+                </div>
+                <button class="image-nav-button prev" data-action="prev">‹</button>
+                <button class="image-nav-button next" data-action="next">›</button>
+              ` : ''}
+            </div>
+          `;
+        } else {
+          // Show default icon
+          projectImageHTML = `
+            <div class="project-image">
+              <div class="project-icon" style="background: ${project.gradient};">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+              </div>
+            </div>
+          `;
+        }
+        
+        el.innerHTML = `
+          ${projectImageHTML}
+          <div class="project-content">
+            <h3 style="font-size: 20px; margin: 0 0 8px 0; font-weight: 600;">${project.title}</h3>
+            <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7; margin: 0 0 16px 0;">${project.description}</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">${project.tags.map((t) => `<span class="tag ${t === "C++" ? "tag-lime" : ""} ${t === "Unity" ? "tag-coral" : ""}">${t}</span>`).join("")}</div>
+            <a href="${project.link}" target="_blank" class="btn-primary">${project.btnText}</a>
+          </div>`;
+        
+        // Add carousel navigation logic
+        if (hasImages && project.images.length > 1) {
+          let currentImageIndex = 0;
+          
+          const updateCarousel = (index) => {
+            const slides = el.querySelectorAll(".project-image-slide");
+            const indicators = el.querySelectorAll(".image-indicator");
+            
+            slides.forEach((slide, idx) => {
+              slide.classList.toggle("active", idx === index);
+            });
+            
+            indicators.forEach((indicator, idx) => {
+              indicator.classList.toggle("active", idx === index);
+            });
+            
+            currentImageIndex = index;
+          };
+          
+          const prevBtn = el.querySelector(".image-nav-button.prev");
+          const nextBtn = el.querySelector(".image-nav-button.next");
+          const indicators = el.querySelectorAll(".image-indicator");
+          
+          prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const newIndex = (currentImageIndex - 1 + project.images.length) % project.images.length;
+            updateCarousel(newIndex);
+          });
+          
+          nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const newIndex = (currentImageIndex + 1) % project.images.length;
+            updateCarousel(newIndex);
+          });
+          
+          indicators.forEach((indicator, idx) => {
+            indicator.addEventListener("click", (e) => {
+              e.stopPropagation();
+              updateCarousel(idx);
+            });
+          });
+        }
+        
+        // Observe new element immediately
+        observer.observe(el);
+        // Make it visible immediately if it's in view
+        el.classList.add("visible");
+        return el;
+      }
+
+      function updateButtonState() {
+        let buttonContainer = document.getElementById("projects-button-container");
+        const hasMore = displayedCount < allProjects.length;
+
+        if (!buttonContainer) {
+          buttonContainer = document.createElement("div");
+          buttonContainer.id = "projects-button-container";
+          buttonContainer.style.cssText = "display: flex; justify-content: center; margin-top: 48px;";
+          grid.parentNode.insertBefore(buttonContainer, grid.nextSibling);
+        }
+
+        buttonContainer.innerHTML = "";
+
+        if (hasMore || isExpanded) {
+          const button = document.createElement("button");
+          button.className = "btn-primary";
+          button.textContent = isExpanded ? "Collapse" : "Show more";
+          button.style.cssText = `
+            padding: 14px 28px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            background: var(--accent-lime);
+            color: #0a0a0c;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          `;
+
+          button.addEventListener("mouseover", () => {
+            button.style.background = "#d4ff33";
+            button.style.transform = "translateY(-2px)";
+          });
+
+          button.addEventListener("mouseout", () => {
+            button.style.background = "var(--accent-lime)";
+            button.style.transform = "translateY(0)";
+          });
+
+          button.addEventListener("click", () => {
+            if (isExpanded) {
+              // Collapse: remove all items except first 3
+              const projectCards = grid.querySelectorAll(".project-card");
+              for (let i = itemsPerPage; i < projectCards.length; i++) {
+                projectCards[i].remove();
+              }
+              displayedCount = itemsPerPage;
+              isExpanded = false;
+              updateButtonState();
+            } else {
+              // Show more: add next 3 with staggered animations
+              const nextBatch = allProjects.slice(displayedCount, displayedCount + itemsPerPage);
+              nextBatch.forEach((project, index) => {
+                const element = createProjectElement(project);
+                element.classList.add("project-card-entrance", `delay-${index + 1}`);
+                grid.appendChild(element);
+              });
+              displayedCount += nextBatch.length;
+              isExpanded = displayedCount >= allProjects.length;
+              updateButtonState();
+            }
+          });
+
+          buttonContainer.appendChild(button);
+        }
+      }
+
+      fetch("./projects/data/projects.json")
+        .then((r) => r.json())
+        .then((data) => {
+          allProjects = data;
+          
+          // Render initial 3 projects with staggered animations
+          const initialProjects = allProjects.slice(0, itemsPerPage);
+          initialProjects.forEach((p, index) => {
+            const element = createProjectElement(p);
+            element.classList.add("project-card-entrance", `delay-${index + 1}`);
+            grid.appendChild(element);
+          });
+          displayedCount = initialProjects.length;
+
+          // Add button if there are more projects
+          if (allProjects.length > itemsPerPage) {
+            updateButtonState();
+          }
+        })
+        .catch((err) => console.error("Failed to load projects.json", err));
+    })();
+  }
+  renderProjects();
+</script>

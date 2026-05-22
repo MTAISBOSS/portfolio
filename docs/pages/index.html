@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      Mohammad Taher Ahmadi | Game Developer &amp; Game Engine Developer
+    </title>
+
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FBXLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.0/umd/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/math/SimplexNoise.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/SSAOPass.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss-browser/4.1.13/index.global.min.js"></script>
+  </head>
+  <body>
+    <div id="nav-container"></div>
+    <div id="content"></div>
+    <script>
+      async function loadPartial(url) {
+        const response = await fetch(url);
+        let html = await response.text();
+
+        html = html.replace(
+          /<script\b[^>]*>\s*\/\/[^<]*For SVG support[\s\S]*?<\/script>/gi,
+          "",
+        );
+        html = html.replace(
+          /<script\b[^>]*>\s*(\/\*.*?\*\/|\/\/.*?\n)*\s*if\s*\(\s*['"]WebSocket['"]\s+in\s+window\s*\)[\s\S]*?<\/script>/gi,
+          "",
+        );
+
+        const container = document.createElement("div");
+        container.innerHTML = html;
+
+        const scripts = Array.from(container.querySelectorAll("script"));
+        scripts.forEach((script) => script.remove());
+
+        const content = document.getElementById("content");
+        while (container.firstChild) {
+          content.appendChild(container.firstChild);
+        }
+
+        for (const oldScript of scripts) {
+          const newScript = document.createElement("script");
+          if (oldScript.type) newScript.type = oldScript.type;
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+            newScript.async = false;
+          } else if (oldScript.textContent.trim()) {
+            newScript.textContent = oldScript.textContent;
+          }
+          document.body.appendChild(newScript);
+        }
+      }
+
+      async function loadAllPartials() {
+        const partials = [
+          "./partials/loading.html",
+          "./partials/nav.html",
+          "./partials/hero.html",
+          "./partials/experience.html",
+          "./partials/aboutme.html",
+          "./partials/education.html",
+          "./partials/projects.html",
+          "./partials/footer.html",
+          "./partials/particles.html",
+          "./partials/curser.html",
+          "./partials/pagescript.html",
+          "./partials/towerdefense.html",
+        ];
+
+        for (const partial of partials) {
+          await loadPartial(partial);
+        }
+      }
+      loadAllPartials();
+    </script>
+    <script>
+      let targetAudioVolume = 1;
+      let currentAudioVolume = 1;
+      const audioFadeThreshold = 500;
+      const audioFadeDuration = 300;
+      let lastAudioUpdateTime = 0;
+
+      function updateAudioVolumeOnScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        targetAudioVolume = Math.max(0, 1 - scrollY / audioFadeThreshold);
+      }
+
+      function smoothAudioVolumeUpdate(currentTime) {
+        if (typeof audioManager === "undefined") return;
+
+        const timeDelta = currentTime - lastAudioUpdateTime;
+        if (timeDelta > audioFadeDuration) {
+          currentAudioVolume = targetAudioVolume;
+          lastAudioUpdateTime = currentTime;
+        } else if (currentAudioVolume !== targetAudioVolume) {
+          const alpha = timeDelta / audioFadeDuration;
+          currentAudioVolume +=
+            (targetAudioVolume - currentAudioVolume) * alpha * 0.1;
+          if (Math.abs(currentAudioVolume - targetAudioVolume) < 0.01) {
+            currentAudioVolume = targetAudioVolume;
+          }
+        }
+
+        if (audioManager && audioManager.masterVolume !== undefined) {
+          audioManager.masterVolume = currentAudioVolume;
+          for (const key in audioManager.sounds) {
+            if (audioManager.sounds[key]) {
+              audioManager.sounds[key].volume =
+                (audioManager.sounds[key]._baseVolume || 0.5) *
+                currentAudioVolume;
+            }
+          }
+        }
+        requestAnimationFrame(smoothAudioVolumeUpdate);
+      }
+
+      window.addEventListener("scroll", updateAudioVolumeOnScroll, {
+        passive: true,
+      });
+
+      setTimeout(() => {
+        requestAnimationFrame(smoothAudioVolumeUpdate);
+      }, 2000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Building a Ray Tracer in C++",
+    "date": "March 2025",
+    "readTime": "12 min read",
+    "excerpt": "From scratch implementation of a physically-based ray tracer with path tracing and realistic materials.",
+    "tags": ["C++", "Ray Tracing"],
+    "url": "/blog/ray-tracing-cpp",
+    "gradient": "linear-gradient(135deg, var(--bg-secondary), rgba(251, 146, 60, 0.1))",
+    "iconGradient": "linear-gradient(135deg, var(--accent-orange), var(--accent-coral))"
+  },
+  {
+    "title": "Multiplayer Game Architecture",
+    "date": "February 2025",
+    "readTime": "15 min read",
+    "excerpt": "Designing scalable real-time multiplayer systems with WebSockets and state synchronization.",
+    "tags": ["Unity", "WebSockets"],
+    "url": "/blog/multiplayer-architecture",
+    "gradient": "linear-gradient(135deg, var(--bg-secondary), rgba(20, 184, 166, 0.1))",
+    "iconGradient": "linear-gradient(135deg, var(--accent-teal), #0d9488)"
+  },
+  {
+    "title": "Building an ECS Game Engine",
+    "date": "January 2025",
+    "readTime": "20 min read",
+    "excerpt": "A deep dive into Entity Component System architecture and data-oriented design.",
+    "tags": ["C++", "ECS"],
+    "url": "/blog/ecs-game-engine",
+    "gradient": "linear-gradient(135deg, var(--bg-secondary), rgba(163, 230, 53, 0.1))",
+    "iconGradient": "linear-gradient(135deg, var(--accent-lime), #65a30d)"
+  }
+]

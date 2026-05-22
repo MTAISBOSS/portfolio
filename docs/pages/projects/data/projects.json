@@ -1,0 +1,267 @@
+[
+  {
+    "title": "Arcane Fanmade game - FPS",
+    "description": "Arcane: Shooting range is a fan-made first-person shooter inspired by the world and style of Arcane. Developed as part of my Game Development course at university, this project explores shooting mechanics, fluid player movement, and stylized environments.",
+    "tags": ["Windows", "Unity", "Data oriented design"],
+    "link": "https://mtaisboss.itch.io/arcane",
+    "gradient": "linear-gradient(135deg, var(--accent-purple), #7c3aed)",
+    "btnText": "Play →",
+    "images": [
+      "../images/Projects/arcane.jpg",
+      "../images/Projects/arcane1.jpg",
+      "../images/Projects/arcane2.jpg"
+    ]
+  },
+  {
+    "title": "Sacrifice",
+    "description": "Sacrifice is an top down twin stick shooter created for a game jam and will be published to android soon...",
+    "tags": ["Windows", "WebGL", "Android", "Unity", "Data oriented design"],
+    "link": "https://mtaisboss.itch.io/sacrifice",
+    "gradient": "linear-gradient(135deg, var(--accent-coral), #e11d48)",
+    "btnText": "Play →",
+    "images": [
+      "../images/Projects/sacrifice.png",
+      "../images/Projects/sacrifice1.png",
+      "../images/Projects/sacrifice2.png"
+    ]
+  },
+  {
+    "title": "Batman Gotham City",
+    "description": "This is a showcase of my skills in lighting, level design and working with timeline and cutscene creation.",
+    "tags": ["Windows", "Unity HDRP"],
+    "link": "",
+    "gradient": "linear-gradient(135deg, var(--accent-yellow), #d97706)",
+    "btnText": "",
+    "images": [
+      "../images/Projects/batman.png",
+      "../images/Projects/batman1.png",
+      "../images/Projects/batman2.png"
+    ]
+  },
+  {
+    "title": "DecorChi",
+    "description": "Designed and developed a match-3 mobile game from concept to release. Published on CafeBazaar.",
+    "tags": ["Android", "Match-3", "Published"],
+    "link": "https://cafebazaar.ir/app/com.EternityGameDevelopers.DecorChi",
+    "gradient": "linear-gradient(135deg, var(--accent-pink), #db2777)",
+    "btnText": "Link →",
+    "images": [
+      "../images/Projects/decorchi.webp",
+      "../images/Projects/decorchi1.webp"
+    ]
+  },
+  {
+    "title": "Tiara and Her Troubled Pedigree",
+    "description": "Worked on Tiara as gameplay programmer, a Serious game focused on cognitive improvement. Received Fajr Festival Diploma and was referenced in academic research.",
+    "tags": ["Android", "Cognitive Improvement", "Award"],
+    "link": "https://myket.ir/app/com.sepamin.tiara",
+    "gradient": "linear-gradient(135deg, var(--accent-green), #059669)",
+    "btnText": "Link →",
+    "images": ["../images/Projects/tiara.webp"]
+  },
+  {
+    "title": "Simple Renderer & Ray Tracing",
+    "description": "Built a simple 3D renderer and implemented a ray tracing project in C++, exploring rendering fundamentals and graphics algorithms.",
+    "tags": ["C++", "Ray Tracing", "Renderer", "Graphics"],
+    "link": "https://github.com/MTAISBOSS/ray-tracing",
+    "gradient": "linear-gradient(135deg, var(--accent-orange), #ea580c)",
+    "btnText": "GitHub →",
+    "images": [
+      "../images/Projects/ray-tracing.png",
+      "../images/Projects/ray-tracing2.png",
+      "../images/Projects/ray-tracing1.png"
+    ]
+  },
+  {
+    "title": "GameFramework",
+    "description": "A Python game frame work for creating games, probably for raspberry pi pico, who knows?",
+    "tags": ["Python", "Dearpygui", "Gameframework"],
+    "link": "https://github.com/MTAISBOSS/GameFramework",
+    "gradient": "linear-gradient(135deg, var(--accent-blue), #0891b2)",
+    "btnText": "GitHub →",
+    "images": [
+      "../images/Projects/GameFramework.png",
+      "../images/Projects/GameFramework1.png",
+      "../images/Projects/GameFramework2.png"
+    ]
+  },
+  {
+    "title": "Simple 3D Renderer",
+    "description": "Created this 3d renderer using python with pygame library",
+    "tags": ["Python", "Graphics", "Renderer"],
+    "link": "https://github.com/MTAISBOSS/Simple-3D-Renderer",
+    "gradient": "linear-gradient(135deg, var(--accent-cyan), #06b6d4)",
+    "btnText": "GitHub →",
+    "images": [
+      "../images/Projects/Simple-3D-Renderer.png",
+      "../images/Projects/Simple-3D-Renderer1.png",
+      "../images/Projects/Simple-3D-Renderer2.png"
+    ]
+  },
+  {
+    "title": "TowerDefense SoftwareEngineering",
+    "description": "Creating a unity game with tower defense genre",
+    "tags": ["Windows", "Unity"],
+    "link": "https://github.com/MTAISBOSS/TowerDefense-SoftwareEngineering",
+    "gradient": "linear-gradient(135deg, var(--accent-lime), #4d7c0f)",
+    "btnText": "GitHub →",
+    "images": [
+      "../images/Projects/TowerDefense-SoftwareEngineering.png",
+      "../images/Projects/TowerDefense-SoftwareEngineering1.png",
+      "../images/Projects/TowerDefense-SoftwareEngineering2.png"
+    ]
+  },
+  {
+    "title": "11 Lives",
+    "description": "A creative game project",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/11-lives",
+    "gradient": "linear-gradient(135deg, var(--accent-purple), #7c3aed)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvMTg1NDMwNC8xMDg4NzYxNS5wbmc=/347x500/amyJyC.png",
+      "https://img.itch.zone/aW1hZ2UvMTg1NDMwNC8xMDg4NzYxNC5wbmc=/347x500/6Bad52.png"
+    ]
+  },
+  {
+    "title": "Avoidant",
+    "description": "A creative game project",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/60",
+    "gradient": "linear-gradient(135deg, var(--accent-teal), #0d9488)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvMzcwNjY0NS8yMjA5ODMwOS5wbmc=/347x500/MWyPec.png",
+      "https://img.itch.zone/aW1hZ2UvMzcwNjY0NS8yMjA5ODMwOC5wbmc=/347x500/xw6N20.png",
+      "https://img.itch.zone/aW1hZ2UvMzcwNjY0NS8yMjA5ODMxMC5wbmc=/347x500/L3bA1n.png"
+    ]
+  },
+  {
+    "title": "Critical Winter",
+    "description": "A game where you are stranded in deep snow, and are bound to survive the radioactive hell",
+    "tags": [],
+    "link": "https://armazda.itch.io/critical-winter",
+    "gradient": "linear-gradient(135deg, var(--accent-blue), #2563eb)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvMzk2NjA3Mi8yNDEzMjcwNS5qcGc=/347x500/%2Fl0eqN.jpg",
+      "https://img.itch.zone/aW1hZ2UvMzk2NjA3Mi8yNDEzMjcwNi5qcGc=/347x500/H8YnLY.jpg"
+    ]
+  },
+  {
+    "title": "Doppelchain",
+    "description": "Record Yourself and solve puzzles!!",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/doppelchain",
+    "gradient": "linear-gradient(135deg, var(--accent-coral), #e11d48)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1nLzIyNTUwMDcxLmpwZw==/original/3Euhvl.jpg",
+      "https://img.itch.zone/aW1hZ2UvMzc2Mzk3My8yMjU0OTYzMy5qcGc=/347x500/klDMRc.jpg",
+      "https://img.itch.zone/aW1hZ2UvMzc2Mzk3My8yMjU0OTYzNC5qcGc=/347x500/KfYIHa.jpg"
+    ]
+  },
+  {
+    "title": "Electro City - The need of energy",
+    "description": "The Protos are taking over the Electro city to charge their cities by using your city's energy...",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/electro-city",
+    "gradient": "linear-gradient(135deg, var(--accent-yellow), #d97706)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvMjk1MjA0OC8yMDY1Njk2Ni5wbmc=/347x500/sSZacb.png",
+      "https://img.itch.zone/aW1hZ2UvMjk1MjA0OC8yMDY1Njk2NC5wbmc=/347x500/HDYCEY.png",
+      "https://img.itch.zone/aW1hZ2UvMjk1MjA0OC8yMDY1Njk2Ny5wbmc=/347x500/XYekl6.png"
+    ]
+  },
+  {
+    "title": "Logic Bomb",
+    "description": "Find bombs and throw them away",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/logic-bomb",
+    "gradient": "linear-gradient(135deg, var(--accent-red), #dc2626)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1nLzIyOTgzMjg4LmpwZw==/original/J5%2B%2By4.jpg",
+      "https://img.itch.zone/aW1hZ2UvMzgzNjkyOS8yMjk4MzE0My5naWY=/original/8N7v6g.gif",
+      "https://img.itch.zone/aW1hZ2UvMzgzNjkyOS8yMjk4MzIzMi5naWY=/original/z1gkdp.gif"
+    ]
+  },
+  {
+    "title": "Memento Mori",
+    "description": "A creative game project",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/memento-mori",
+    "gradient": "linear-gradient(135deg, var(--accent-purple), #7c3aed)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvMzgwMzgzNi8yMjY3NjEzNi5wbmc=/347x500/BZTWg%2F.png",
+      "https://img.itch.zone/aW1hZ2UvMzgwMzgzNi8yMjY3NjEzNS5wbmc=/347x500/hVldEO.png",
+      "https://img.itch.zone/aW1hZ2UvMzgwMzgzNi8yMjY3NjEzNy5wbmc=/347x500/H0TY%2FJ.png"
+    ]
+  },
+  {
+    "title": "Meowbit Invader",
+    "description": "A creative game project",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/meowbit-invader",
+    "gradient": "linear-gradient(135deg, var(--accent-lime), #65a30d)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1nLzIyNjc3MDExLnBuZw==/original/fF%2B7s4.png",
+      "https://img.itch.zone/aW1hZ2UvMzczMjQ2MS8yMjI0NDM0NS5wbmc=/347x500/aHEC%2F%2B.png",
+      "https://img.itch.zone/aW1hZ2UvMzczMjQ2MS8yMjI0NDM0Ni5wbmc=/347x500/CJ9yMR.png"
+    ]
+  },
+  {
+    "title": "MTA Helix Jump",
+    "description": "A creative game project",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/mta-helix-jump",
+    "gradient": "linear-gradient(135deg, var(--accent-teal), #0d9488)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvMTg1NDMzNC8xMDg4Nzg0NS5wbmc=/347x500/TlI%2Bm%2B.png",
+      "https://img.itch.zone/aW1hZ2UvMTg1NDMzNC8xMDg4Nzg0Ni5wbmc=/347x500/%2FgXuwK.png"
+    ]
+  },
+  {
+    "title": "Oceanfall",
+    "description": "A creative game project",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/oceanfall",
+    "gradient": "linear-gradient(135deg, var(--accent-cyan), #06b6d4)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1nLzIzNTU3Mzg3LnBuZw==/original/3dLAn2.png",
+      "https://img.itch.zone/aW1hZ2UvMzk0OTU2MC8yMzU1NzAxNy5wbmc=/347x500/2qRIbt.png",
+      "https://img.itch.zone/aW1hZ2UvMzk0OTU2MC8yMzU1NzI4Ni5wbmc=/347x500/9wysAN.png"
+    ]
+  },
+  {
+    "title": "Pepsi Man Fan-made",
+    "description": "an endless runner pepsi man game",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/pepsiman-fanmade",
+    "gradient": "linear-gradient(135deg, var(--accent-blue), #1d4ed8)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1nLzI0ODE2MDIxLmpwZw==/original/Sn%2BRpx.jpg",
+      "https://img.itch.zone/aW1hZ2UvNDE2MzQ4Ny8yNDgxNTcwMS5wbmc=/347x500/9UvtRX.png",
+      "https://img.itch.zone/aW1hZ2UvNDE2MzQ4Ny8yNDgxNTcwMC5wbmc=/347x500/M4sL4t.png"
+    ]
+  },
+  {
+    "title": "The Blue Ice (Game Jam)",
+    "description": "A creative game project",
+    "tags": [],
+    "link": "https://mtaisboss.itch.io/the-blue-ice",
+    "gradient": "linear-gradient(135deg, var(--accent-blue), #2563eb)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvNDMxMjM0NS8yNTc3Nzk1OC5wbmc=/347x500/NST3H1.png",
+      "https://img.itch.zone/aW1hZ2UvNDMxMjM0NS8yNTc4MDE3MS5wbmc=/347x500/R5x9El.png",
+      "https://img.itch.zone/aW1hZ2UvNDMxMjM0NS8yNTc4MDE3Ny5wbmc=/347x500/uGZHHp.png"
+    ]
+  }
+]

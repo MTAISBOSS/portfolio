@@ -1,0 +1,146 @@
+<div class="cursor"></div>
+<div class="cursor-dot"></div>
+<script>
+  (function () {
+    const cursor = document.querySelector(".cursor");
+    const cursorDot = document.querySelector(".cursor-dot");
+
+    if (cursor && cursorDot && window.matchMedia("(pointer: fine)").matches) {
+      let mouseX = 0,
+        mouseY = 0;
+      let cursorX = 0,
+        cursorY = 0;
+
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.left = mouseX + "px";
+        cursorDot.style.top = mouseY + "px";
+      });
+
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        cursor.style.left = cursorX + "px";
+        cursor.style.top = cursorY + "px";
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      // Hover effects
+      const hoverElements = document.querySelectorAll(
+        "a, button, .btn-primary, .btn-outline, .card, .tag",
+      );
+      hoverElements.forEach((el) => {
+        el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
+        el.addEventListener("mouseleave", () =>
+          cursor.classList.remove("hover"),
+        );
+      });
+
+      // Click effect
+      document.addEventListener("mousedown", () =>
+        cursor.classList.add("clicking"),
+      );
+      document.addEventListener("mouseup", () =>
+        cursor.classList.remove("clicking"),
+      );
+
+      // Hide when leaving window
+      document.addEventListener("mouseleave", () => {
+        cursor.style.opacity = "0";
+        cursorDot.style.opacity = "0";
+      });
+      document.addEventListener("mouseenter", () => {
+        cursor.style.opacity = "1";
+        cursorDot.style.opacity = "1";
+      });
+    }
+  })();
+
+  (function () {
+    const canvas = document.getElementById("particles-canvas");
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    const particleCount = 100;
+
+    const colors = [
+      { r: 200, g: 170, b: 130 }, // Dusty tan
+      { r: 180, g: 150, b: 100 }, // Warm sand
+      { r: 220, g: 190, b: 150 }, // Soft cream
+      { r: 160, g: 130, b: 100 }, // Muted brown
+      { r: 240, g: 230, b: 210 }, // Warm white
+    ];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    class Particle {
+      constructor() {
+        this.reset();
+        this.y = Math.random() * canvas.height;
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + 10;
+        this.size = Math.random() * 2.5 + 0.3;
+        this.speedY = -(Math.random() * 0.4 + 0.08);
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.5 + 0.1;
+        this.wobble = Math.random() * Math.PI * 2;
+        this.wobbleSpeed = Math.random() * 0.025 + 0.008;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.pulse = Math.random() * Math.PI * 2;
+        this.pulseSpeed = Math.random() * 0.03 + 0.01;
+      }
+
+      update() {
+        this.y += this.speedY;
+        this.wobble += this.wobbleSpeed;
+        this.pulse += this.pulseSpeed;
+        this.x += this.speedX + Math.sin(this.wobble) * 0.4;
+
+        if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        const pulsingOpacity =
+          this.opacity * (0.6 + Math.sin(this.pulse) * 0.25);
+        const { r, g, b } = this.color;
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${pulsingOpacity * 0.1})`;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${pulsingOpacity * 0.7})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+</script>

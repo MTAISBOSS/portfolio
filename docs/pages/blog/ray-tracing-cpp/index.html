@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Ray Tracer in C++ | Mohammad Taher Ahmadi</title>
+  <link rel="stylesheet" href="../../styles/blog.css">
+  </head>
+<body>
+  <div id="content"></div>
+
+  <div id="page-content" style="display:none">
+
+    <main style="padding-top: 120px; padding-bottom: 80px;">
+    <article style="max-width: 720px; margin: 0 auto; padding: 0 24px;">
+      <a href="/blog" class="back-link fade-in">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
+        Back to Blog
+      </a>
+
+      <header class="fade-in" style="margin-bottom: 48px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <span style="font-size: 12px; font-family: 'JetBrains Mono', monospace; color: var(--accent-lime);">March 2025</span>
+          <span style="color: var(--text-muted);">•</span>
+          <span style="font-size: 12px; color: var(--text-muted);">12 min read</span>
+        </div>
+        <h1 style="font-size: clamp(32px, 5vw, 44px); font-weight: 700; margin: 0 0 20px 0; line-height: 1.2; letter-spacing: -1px;">Building a Ray Tracer in C++</h1>
+        <p style="font-size: 18px; color: var(--text-secondary); line-height: 1.7; margin: 0 0 24px 0;">A from-scratch implementation of a physically-based ray tracer with path tracing, BVH acceleration, and realistic materials.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="tag tag-lime">C++</span>
+          <span class="tag tag-orange">Ray Tracing</span>
+          <span class="tag tag-orange">Path Tracing</span>
+        </div>
+      </header>
+
+      <div class="prose fade-in">
+        <h2>Why Build a Ray Tracer?</h2>
+        <p>Ray tracing is one of the most elegant algorithms in computer graphics. At its core, it simulates how light travels through a scene by tracing rays from a camera and calculating how they interact with objects.</p>
+
+        <blockquote><p>"Ray tracing is the future—and has been for the past 30 years." — A common joke in graphics programming that finally came true with RTX hardware.</p></blockquote>
+
+        <h2>The Core Algorithm</h2>
+        <p>The basic ray tracing loop is surprisingly simple:</p>
+        <ol>
+          <li>For each pixel, shoot a ray from the camera into the scene</li>
+          <li>Find the closest object the ray intersects</li>
+          <li>Calculate the color at that intersection point</li>
+          <li>Recursively trace reflected/refracted rays</li>
+        </ol>
+
+        <pre><code>Vec3 trace(const Ray&amp; ray, const Scene&amp; scene, int depth) {
+    if (depth &gt;= MAX_DEPTH) return Vec3(0, 0, 0);
+    
+    HitRecord hit;
+    if (scene.intersect(ray, 0.001f, INFINITY, hit)) {
+        Ray scattered;
+        Vec3 attenuation;
+        if (hit.material-&gt;scatter(ray, hit, attenuation, scattered)) {
+            return attenuation * trace(scattered, scene, depth + 1);
+        }
+        return Vec3(0, 0, 0);
+    }
+    return skyColor(ray);
+}</code></pre>
+
+        <h2>Materials and BRDFs</h2>
+        <p>The magic of realistic rendering comes from accurate material models. I implemented three fundamental types:</p>
+        
+        <h3>Diffuse (Lambertian)</h3>
+        <p>Diffuse materials scatter light randomly in the hemisphere above the surface, creating matte appearances.</p>
+
+        <h3>Metal</h3>
+        <p>Metallic surfaces reflect rays according to the law of reflection, with optional "fuzziness" for roughness.</p>
+
+        <h3>Dielectric (Glass)</h3>
+        <p>Handles both reflection and refraction using Fresnel equations and Snell's law.</p>
+
+        <h2>BVH Acceleration</h2>
+        <p>Testing every ray against every object scales poorly—O(n) per ray. A Bounding Volume Hierarchy organizes objects into a tree structure, reducing intersection tests to O(log n) on average.</p>
+
+        <h2>Conclusion</h2>
+        <p>Building a ray tracer from scratch was incredibly rewarding. It deepened my understanding of linear algebra, optics, and performance optimization. If you're interested in graphics programming, I highly recommend starting here.</p>
+      </div>
+    </article>
+  </main>
+
+    </footer>
+
+  <script>
+    async function loadPartial(url) {
+      const response = await fetch(url);
+      let html = await response.text();
+      html = html.replace(/<script\b[^>]*>\s*\/\/[^<]*For SVG support[\s\S]*?<\/script>/gi, "");
+      html = html.replace(/<script\b[^>]*>\s*(\/\*.*?\*\/|\/\/.*?\n)*\s*if\s*\(\s*['\"]WebSocket['\"]\s+in\s+window\s*\)[\s\S]*?<\/script>/gi, "");
+      const container = document.createElement('div'); container.innerHTML = html;
+      const scripts = Array.from(container.querySelectorAll('script')); scripts.forEach(s => s.remove());
+      const content = document.getElementById('content'); while (container.firstChild) content.appendChild(container.firstChild);
+      for (const oldScript of scripts) {
+        const newScript = document.createElement('script');
+        if (oldScript.type) newScript.type = oldScript.type;
+        if (oldScript.src) { newScript.src = oldScript.src; newScript.async = false; }
+        else if (oldScript.textContent.trim()) newScript.textContent = oldScript.textContent;
+        document.body.appendChild(newScript);
+      }
+    }
+
+    async function loadAllPartials() {
+      const partials = ['../../partials/loading.html','../../partials/nav.html','../../partials/particles.html','../../partials/curser.html','../../partials/pagescript.html'];
+      for (const p of partials) await loadPartial(p);
+    }
+
+    function initPost() {
+      const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      function hideLoaderAndReveal() { setTimeout(() => { const l = document.getElementById('loader'); if (l) l.classList.add('hidden'); document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible')); }, 400); }
+      if (document.readyState === 'complete') hideLoaderAndReveal(); else window.addEventListener('load', hideLoaderAndReveal);
+    }
+
+    (async function(){ await loadAllPartials(); const page = document.getElementById('page-content'); const content = document.getElementById('content'); if (page && content) { while (page.firstChild) content.appendChild(page.firstChild); initPost(); } })();
+  </script>
+
+</body></html>
