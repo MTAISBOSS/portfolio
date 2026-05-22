@@ -33,7 +33,7 @@ function initializeTileLoading() {
   const tileTextureLoader = new THREE.TextureLoader();
 
   tileTextureLoader.load(
-    "../models/colormap.png",
+    "./models/colormap.png",
     (texture) => {
       tileTexture = texture;
       tileTexture.colorSpace = THREE.SRGBColorSpace;
@@ -71,7 +71,7 @@ function loadModel(name) {
     } else {
       const fbxLoaderTiles = new THREE.FBXLoader();
       fbxLoaderTiles.load(
-        `../models/${name}.fbx`,
+        `./models/${name}.fbx`,
         (fbx) => {
           fbx.traverse((child) => {
             if (child.isMesh) {

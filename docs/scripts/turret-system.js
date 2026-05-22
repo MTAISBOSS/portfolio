@@ -21,11 +21,11 @@ function loadTurretModels() {
 
     modelNames.forEach((modelName) => {
       const texture = textureLoader.load(
-        `../turrets/${modelConfigs[modelName]}`,
+        `./turrets/${modelConfigs[modelName]}`,
       );
       texture.colorSpace = THREE.SRGBColorSpace;
 
-      loader.load(`../turrets/${modelName}.fbx`, (fbx) => {
+      loader.load(`./turrets/${modelName}.fbx`, (fbx) => {
         fbx.traverse((child) => {
           if (child.isMesh) {
             child.castShadow = true;

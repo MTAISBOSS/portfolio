@@ -7,9 +7,9 @@
     "gradient": "linear-gradient(135deg, var(--accent-purple), #7c3aed)",
     "btnText": "Play →",
     "images": [
-      "../images/Projects/arcane.jpg",
-      "../images/Projects/arcane1.jpg",
-      "../images/Projects/arcane2.jpg"
+      "./images/Projects/arcane.jpg",
+      "./images/Projects/arcane1.jpg",
+      "./images/Projects/arcane2.jpg"
     ]
   },
   {
@@ -20,9 +20,9 @@
     "gradient": "linear-gradient(135deg, var(--accent-coral), #e11d48)",
     "btnText": "Play →",
     "images": [
-      "../images/Projects/sacrifice.png",
-      "../images/Projects/sacrifice1.png",
-      "../images/Projects/sacrifice2.png"
+      "./images/Projects/sacrifice.png",
+      "./images/Projects/sacrifice1.png",
+      "./images/Projects/sacrifice2.png"
     ]
   },
   {
@@ -33,9 +33,9 @@
     "gradient": "linear-gradient(135deg, var(--accent-yellow), #d97706)",
     "btnText": "",
     "images": [
-      "../images/Projects/batman.png",
-      "../images/Projects/batman1.png",
-      "../images/Projects/batman2.png"
+      "./images/Projects/batman.png",
+      "./images/Projects/batman1.png",
+      "./images/Projects/batman2.png"
     ]
   },
   {
@@ -46,8 +46,8 @@
     "gradient": "linear-gradient(135deg, var(--accent-pink), #db2777)",
     "btnText": "Link →",
     "images": [
-      "../images/Projects/decorchi.webp",
-      "../images/Projects/decorchi1.webp"
+      "./images/Projects/decorchi.webp",
+      "./images/Projects/decorchi1.webp"
     ]
   },
   {
@@ -57,7 +57,7 @@
     "link": "https://myket.ir/app/com.sepamin.tiara",
     "gradient": "linear-gradient(135deg, var(--accent-green), #059669)",
     "btnText": "Link →",
-    "images": ["../images/Projects/tiara.webp"]
+    "images": ["./images/Projects/tiara.webp"]
   },
   {
     "title": "Simple Renderer & Ray Tracing",
@@ -67,9 +67,9 @@
     "gradient": "linear-gradient(135deg, var(--accent-orange), #ea580c)",
     "btnText": "GitHub →",
     "images": [
-      "../images/Projects/ray-tracing.png",
-      "../images/Projects/ray-tracing2.png",
-      "../images/Projects/ray-tracing1.png"
+      "./images/Projects/ray-tracing.png",
+      "./images/Projects/ray-tracing2.png",
+      "./images/Projects/ray-tracing1.png"
     ]
   },
   {
@@ -80,9 +80,9 @@
     "gradient": "linear-gradient(135deg, var(--accent-blue), #0891b2)",
     "btnText": "GitHub →",
     "images": [
-      "../images/Projects/GameFramework.png",
-      "../images/Projects/GameFramework1.png",
-      "../images/Projects/GameFramework2.png"
+      "./images/Projects/GameFramework.png",
+      "./images/Projects/GameFramework1.png",
+      "./images/Projects/GameFramework2.png"
     ]
   },
   {
@@ -93,9 +93,9 @@
     "gradient": "linear-gradient(135deg, var(--accent-cyan), #06b6d4)",
     "btnText": "GitHub →",
     "images": [
-      "../images/Projects/Simple-3D-Renderer.png",
-      "../images/Projects/Simple-3D-Renderer1.png",
-      "../images/Projects/Simple-3D-Renderer2.png"
+      "./images/Projects/Simple-3D-Renderer.png",
+      "./images/Projects/Simple-3D-Renderer1.png",
+      "./images/Projects/Simple-3D-Renderer2.png"
     ]
   },
   {
@@ -106,9 +106,9 @@
     "gradient": "linear-gradient(135deg, var(--accent-lime), #4d7c0f)",
     "btnText": "GitHub →",
     "images": [
-      "../images/Projects/TowerDefense-SoftwareEngineering.png",
-      "../images/Projects/TowerDefense-SoftwareEngineering1.png",
-      "../images/Projects/TowerDefense-SoftwareEngineering2.png"
+      "./images/Projects/TowerDefense-SoftwareEngineering.png",
+      "./images/Projects/TowerDefense-SoftwareEngineering1.png",
+      "./images/Projects/TowerDefense-SoftwareEngineering2.png"
     ]
   },
   {

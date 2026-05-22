@@ -1,28 +1,28 @@
 /* ===== CSS VARIABLES ===== */
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--thin.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--thin.ttf") format("truetype");
   font-style: normal;
   font-weight: 100;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--thinitalic.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--thinitalic.ttf") format("truetype");
   font-style: italic;
   font-weight: 100;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--extralight.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--extralight.ttf") format("truetype");
   font-style: normal;
   font-weight: 200;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--extralightitalic.ttf")
+  src: url("../fonts/jetbrainsmono-wght--extralightitalic.ttf")
     format("truetype");
   font-style: italic;
   font-weight: 200;
@@ -30,86 +30,84 @@
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--light.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--light.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--lightitalic.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--lightitalic.ttf") format("truetype");
   font-style: italic;
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--regular.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--italic.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--italic.ttf") format("truetype");
   font-style: italic;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--medium.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--medium.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--mediumitalic.ttf")
-    format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--mediumitalic.ttf") format("truetype");
   font-style: italic;
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--semibold.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--semibold.ttf") format("truetype");
   font-style: normal;
   font-weight: 600;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--semibolditalic.ttf")
-    format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--semibolditalic.ttf") format("truetype");
   font-style: italic;
   font-weight: 600;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--bold.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--bold.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--bolditalic.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--bolditalic.ttf") format("truetype");
   font-style: italic;
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--extrabold.ttf") format("truetype");
+  src: url("../fonts/jetbrainsmono-wght--extrabold.ttf") format("truetype");
   font-style: normal;
   font-weight: 800;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../../fonts/jetbrainsmono-wght--extrabolditalic.ttf")
+  src: url("../fonts/jetbrainsmono-wght--extrabolditalic.ttf")
     format("truetype");
   font-style: italic;
   font-weight: 800;
@@ -117,35 +115,35 @@
 }
 @font-face {
   font-family: "Space Grotesk";
-  src: url("../../fonts/spacegrotesk-wght--light.ttf") format("truetype");
+  src: url("../fonts/spacegrotesk-wght--light.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: "Space Grotesk";
-  src: url("../../fonts/spacegrotesk-wght--regular.ttf") format("truetype");
+  src: url("../fonts/spacegrotesk-wght--regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "Space Grotesk";
-  src: url("../../fonts/spacegrotesk-wght--medium.ttf") format("truetype");
+  src: url("../fonts/spacegrotesk-wght--medium.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
   font-family: "Space Grotesk";
-  src: url("../../fonts/spacegrotesk-wght--semibold.ttf") format("truetype");
+  src: url("../fonts/spacegrotesk-wght--semibold.ttf") format("truetype");
   font-style: normal;
   font-weight: 600;
   font-display: swap;
 }
 @font-face {
   font-family: "Space Grotesk";
-  src: url("../../fonts/spacegrotesk-wght--bold.ttf") format("truetype");
+  src: url("../fonts/spacegrotesk-wght--bold.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
   font-display: swap;

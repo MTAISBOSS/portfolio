@@ -257,15 +257,15 @@ function startGameLoop() {
 
 async function initAudio() {
   await audioManager.loadSounds({
-    blab: { url: "../audio/blab.wav", volume: 0.5, loop: false },
-    bloob: { url: "../audio/bloob.wav", volume: 0.5, loop: false },
+    blab: { url: "./audio/blab.wav", volume: 0.5, loop: false },
+    bloob: { url: "./audio/bloob.wav", volume: 0.5, loop: false },
     themeBackground: {
-      url: "../audio/themeBackground.mp3",
+      url: "./audio/themeBackground.mp3",
       volume: 1,
       loop: true,
     },
-    sneeze: { url: "../audio/sneeze.wav", volume: 0.1, loop: false },
-    splash: { url: "../audio/splash.wav", volume: 0.5, loop: false },
+    sneeze: { url: "./audio/sneeze.wav", volume: 0.1, loop: false },
+    splash: { url: "./audio/splash.wav", volume: 0.5, loop: false },
   });
 
   console.log("Loaded Audios");
