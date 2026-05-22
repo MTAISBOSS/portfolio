@@ -258,7 +258,6 @@ function startGameLoop() {
 async function initAudio() {
   await audioManager.loadSounds({
     blab: { url: "audio/Blab.wav", volume: 0.5, loop: false },
-    bloob: { url: "audio/Bloob.wav", volume: 0.5, loop: false },
     themeBackground: {
       url: "audio/themeBackground.mp3",
       volume: 1,
@@ -267,9 +266,8 @@ async function initAudio() {
     sneeze: { url: "audio/Sneeze.wav", volume: 0.1, loop: false },
     splash: { url: "audio/Splash.wav", volume: 0.5, loop: false },
   });
-
-  console.log("Loaded Audios");
   audioManager.play("themeBackground");
+  console.log("Loaded Audios");
 }
 
 async function initializeGame() {
