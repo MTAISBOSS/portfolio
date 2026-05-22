@@ -43,9 +43,9 @@ function makeMaterialNonReflective(mat) {
 if (THREE && THREE.FBXLoader && THREE.TextureLoader) {
   const _fbxLoader = new THREE.FBXLoader();
   const _texLoader = new THREE.TextureLoader();
-  _texLoader.load("./models/mushroom.png", (tex) => {
+  _texLoader.load("models/mushroom.png", (tex) => {
     mushroomTexture = tex;
-    _fbxLoader.load("./models/mushroom.fbx", (obj) => {
+    _fbxLoader.load("models/mushroom.fbx", (obj) => {
       obj.traverse((child) => {
         if (child.isMesh) {
           // apply texture if mesh has a material
