@@ -53,8 +53,6 @@
 
         done() {
           this.loaded++;
-
-          console.log(`Loaded ${this.loaded}/${this.total}`);
         },
 
         finish() {
@@ -111,7 +109,6 @@
         }
 
         for (const oldScript of scripts) {
-          console.log("Loading script from:", url);
           const newScript = document.createElement("script");
           if (oldScript.type) newScript.type = oldScript.type;
           if (oldScript.src) {

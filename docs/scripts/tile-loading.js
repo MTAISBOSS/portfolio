@@ -40,8 +40,6 @@ async function initializeTileLoading() {
         tileTexture = texture;
         tileTexture.colorSpace = THREE.SRGBColorSpace;
 
-        console.log("Tile texture loaded successfully");
-
         resolve(texture);
       },
 

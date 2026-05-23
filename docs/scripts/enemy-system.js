@@ -70,8 +70,6 @@ if (THREE && THREE.FBXLoader && THREE.TextureLoader) {
 
             mushroomModel = obj;
 
-            console.log("Mushroom loaded");
-
             resolve();
           },
           undefined,

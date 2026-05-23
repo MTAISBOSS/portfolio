@@ -266,7 +266,6 @@ async function initAudio() {
     sneeze: { url: "audio/Sneeze.wav", volume: 0.1, loop: false },
     splash: { url: "audio/Splash.wav", volume: 0.5, loop: false },
   });
-  console.log("Loaded Audios");
 }
 function waitForFirstFrame() {
   return new Promise((resolve) => {
@@ -288,7 +287,6 @@ function setupAudioUnlock() {
 
     try {
       await audioManager.play("themeBackground");
-      console.log("Audio unlocked");
     } catch (e) {
       console.warn("Audio unlock failed", e);
     }
@@ -305,11 +303,7 @@ function setupAudioUnlock() {
 async function initializeGame() {
   await Promise.all([initAudio(), initializeTileLoading()]);
 
-  console.log("Audio + textures loaded");
-
   await placeAllModels();
-
-  console.log("Models loaded");
 
   await initializeTurrets();
 
