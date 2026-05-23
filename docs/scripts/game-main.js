@@ -268,7 +268,40 @@ async function initAudio() {
   });
   console.log("Loaded Audios");
 }
+function waitForFirstFrame() {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        resolve();
+      });
+    });
+  });
+}
 
+let audioStarted = false;
+
+function setupAudioUnlock() {
+  const unlock = async () => {
+    if (audioStarted) return;
+
+    audioStarted = true;
+
+    try {
+      await audioManager.play("themeBackground");
+      console.log("Audio unlocked");
+    } catch (e) {
+      console.warn("Audio unlock failed", e);
+    }
+
+    window.removeEventListener("click", unlock);
+    window.removeEventListener("touchstart", unlock);
+    window.removeEventListener("keydown", unlock);
+  };
+
+  window.addEventListener("click", unlock);
+  window.addEventListener("touchstart", unlock);
+  window.addEventListener("keydown", unlock);
+}
 async function initializeGame() {
   await Promise.all([initAudio(), initializeTileLoading()]);
 
@@ -278,11 +311,8 @@ async function initializeGame() {
 
   console.log("Models loaded");
 
-  initializeTurrets();
-
-  audioManager.play("themeBackground");
+  await initializeTurrets();
 
   startGameLoop();
-
-  window.AppLoader.finish();
+  window.AppLoader.showPlayButton();
 }

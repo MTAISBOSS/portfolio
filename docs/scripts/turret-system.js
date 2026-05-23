@@ -6,45 +6,47 @@ const tileSize = 1.3;
 const tileHeight = 0.3;
 const gap = 0.06;
 
-function loadTurretModels() {
-  return new Promise((resolve) => {
-    const loader = new THREE.FBXLoader();
-    const textureLoader = new THREE.TextureLoader();
-
-    const modelConfigs = {
-      Tow_Cannon2: "Tow_cannon1.png",
-      Tow_Acid1: "Tow_fire_acid.png",
-    };
-
-    const modelNames = Object.keys(modelConfigs);
-    let loadedCount = 0;
-
-    modelNames.forEach((modelName) => {
-      const texture = textureLoader.load(
-        `./turrets/${modelConfigs[modelName]}`,
-      );
-      texture.colorSpace = THREE.SRGBColorSpace;
-
-      loader.load(`./turrets/${modelName}.fbx`, (fbx) => {
-        fbx.traverse((child) => {
-          if (child.isMesh) {
-            child.castShadow = true;
-            child.receiveShadow = true;
-            child.material = new THREE.MeshStandardMaterial({
-              map: texture,
-              roughness: 0.6,
-              metalness: 0.4,
-            });
-          }
-        });
-        turretModels[modelName] = fbx;
-        loadedCount++;
-        if (loadedCount === modelNames.length) {
-          resolve();
-        }
-      });
-    });
+async function loadTexture(url) {
+  return new Promise((resolve, reject) => {
+    new THREE.TextureLoader().load(url, resolve, undefined, reject);
   });
+}
+
+async function loadFBX(url) {
+  return new Promise((resolve, reject) => {
+    new THREE.FBXLoader().load(url, resolve, undefined, reject);
+  });
+}
+
+async function loadTurretModels() {
+  const modelConfigs = {
+    Tow_Cannon2: "Tow_cannon1.png",
+    Tow_Acid1: "Tow_fire_acid.png",
+  };
+
+  for (const [modelName, textureName] of Object.entries(modelConfigs)) {
+    const [texture, fbx] = await Promise.all([
+      loadTexture(`./turrets/${textureName}`),
+      loadFBX(`./turrets/${modelName}.fbx`),
+    ]);
+
+    texture.colorSpace = THREE.SRGBColorSpace;
+
+    fbx.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+
+        child.material = new THREE.MeshStandardMaterial({
+          map: texture,
+          roughness: 0.6,
+          metalness: 0.4,
+        });
+      }
+    });
+
+    turretModels[modelName] = fbx;
+  }
 }
 
 function createTurret(x, z, baseColor, accentColor, modelType) {

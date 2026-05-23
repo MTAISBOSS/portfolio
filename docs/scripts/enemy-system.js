@@ -23,6 +23,8 @@ const pathPoints = [
 
 let mushroomModel = null;
 let mushroomTexture = null;
+
+let mushroomLoadPromise = null;
 function makeMaterialNonReflective(mat) {
   if (!mat) return;
   try {
@@ -41,25 +43,44 @@ function makeMaterialNonReflective(mat) {
 }
 
 if (THREE && THREE.FBXLoader && THREE.TextureLoader) {
-  const _fbxLoader = new THREE.FBXLoader();
-  const _texLoader = new THREE.TextureLoader();
-  _texLoader.load("models/mushroom.png", (tex) => {
-    mushroomTexture = tex;
-    _fbxLoader.load("models/mushroom.fbx", (obj) => {
-      obj.traverse((child) => {
-        if (child.isMesh) {
-          // apply texture if mesh has a material
-          try {
-            child.material.map = mushroomTexture;
-            makeMaterialNonReflective(child.material);
-            child.material.needsUpdate = true;
-          } catch (e) {}
-          child.castShadow = true;
-          child.receiveShadow = true;
-        }
-      });
-      mushroomModel = obj;
-    });
+  mushroomLoadPromise = new Promise((resolve, reject) => {
+    const _fbxLoader = new THREE.FBXLoader();
+    const _texLoader = new THREE.TextureLoader();
+
+    _texLoader.load(
+      "models/mushroom.png",
+      (tex) => {
+        mushroomTexture = tex;
+
+        _fbxLoader.load(
+          "models/mushroom.fbx",
+          (obj) => {
+            obj.traverse((child) => {
+              if (child.isMesh) {
+                try {
+                  child.material.map = mushroomTexture;
+                  makeMaterialNonReflective(child.material);
+                  child.material.needsUpdate = true;
+                } catch (e) {}
+
+                child.castShadow = true;
+                child.receiveShadow = true;
+              }
+            });
+
+            mushroomModel = obj;
+
+            console.log("Mushroom loaded");
+
+            resolve();
+          },
+          undefined,
+          reject,
+        );
+      },
+      undefined,
+      reject,
+    );
   });
 }
 
@@ -115,6 +136,9 @@ function removeEnemy(enemy, onEnemyDied) {
 }
 
 function updateEnemies(time, onEnemyDied) {
+  if (!isPlayButtonPressed) {
+    return;
+  }
   if (time - lastEnemySpawn > enemySpawnRate && enemies.length < 5) {
     createEnemy();
     audioManager.play("sneeze");
