@@ -181,7 +181,7 @@ function renderProjects() {
 
 async function initProjects() {
   try {
-    const res = await fetch("/projects/data/projects.json");
+    const res = await fetch("./projects/projects.json");
 
     allProjects = await res.json();
 
