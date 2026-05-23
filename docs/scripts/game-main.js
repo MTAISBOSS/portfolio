@@ -266,18 +266,23 @@ async function initAudio() {
     sneeze: { url: "audio/Sneeze.wav", volume: 0.1, loop: false },
     splash: { url: "audio/Splash.wav", volume: 0.5, loop: false },
   });
-  audioManager.play("themeBackground");
   console.log("Loaded Audios");
 }
 
 async function initializeGame() {
-  await initAudio();
+  await Promise.all([initAudio(), initializeTileLoading()]);
 
-  initializeTileLoading();
+  console.log("Audio + textures loaded");
 
   await placeAllModels();
 
+  console.log("Models loaded");
+
   initializeTurrets();
 
+  audioManager.play("themeBackground");
+
   startGameLoop();
+
+  window.AppLoader.finish();
 }

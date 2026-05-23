@@ -42,6 +42,36 @@
     <div id="nav-container"></div>
     <div id="content"></div>
     <script>
+      window.AppLoader = {
+        total: 0,
+        loaded: 0,
+
+        add(count = 1) {
+          this.total += count;
+        },
+
+        done() {
+          this.loaded++;
+
+          console.log(`Loaded ${this.loaded}/${this.total}`);
+
+          if (this.loaded >= this.total) {
+            this.finish();
+          }
+        },
+
+        finish() {
+          const loader = document.getElementById("loader");
+
+          if (loader) {
+            setTimeout(() => {
+              loader.classList.add("hidden");
+            }, 500);
+          }
+        },
+      };
+    </script>
+    <script>
       async function loadPartial(url) {
         const response = await fetch(url);
         let html = await response.text();
@@ -95,8 +125,11 @@
           "partials/towerdefense.html",
         ];
 
+        window.AppLoader.add(partials.length);
+
         for (const partial of partials) {
           await loadPartial(partial);
+          window.AppLoader.done();
         }
       }
       loadAllPartials();
@@ -104,7 +137,7 @@
     <script>
       let targetAudioVolume = 1;
       let currentAudioVolume = 1;
-      const audioFadeThreshold = 500;
+      const audioFadeThreshold = 1000;
       const audioFadeDuration = 300;
       let lastAudioUpdateTime = 0;
 

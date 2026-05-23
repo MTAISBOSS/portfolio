@@ -15,7 +15,14 @@
   {
     "title": "Sacrifice",
     "description": "Sacrifice is an top down twin stick shooter created for a game jam and will be published to android soon...",
-    "tags": ["Windows", "WebGL", "Android", "Unity", "Data oriented design"],
+    "tags": [
+      "Windows",
+      "WebGL",
+      "Android",
+      "Game Jam",
+      "Unity",
+      "Data oriented design"
+    ],
     "link": "https://mtaisboss.itch.io/sacrifice",
     "gradient": "linear-gradient(135deg, var(--accent-coral), #e11d48)",
     "btnText": "Play →",
@@ -31,11 +38,60 @@
     "tags": ["Windows", "Unity HDRP"],
     "link": "",
     "gradient": "linear-gradient(135deg, var(--accent-yellow), #d97706)",
-    "btnText": "",
+    "btnText": "Coming Soon...",
     "images": [
       "images/Projects/batman.png",
       "images/Projects/batman1.png",
       "images/Projects/batman2.png"
+    ]
+  },
+  {
+    "title": "Oceanfall",
+    "description": "You are stranded , alone and far from home. With nothing but your determination, you build a small boat and set sail into the endless ocean in search of help… a rescuer, a savior. But survival won’t be easy. Hunger and thirst will test your strength, and eating spoiled food might make you sick. Be careful on your journey The sea is unforgiving. You must stand firmly on your boat and keep it balanced. Every object you place can shift its weight and risk capsizing.Manage your movements and your cargo wisely, or you may find yourself sinking beneath the waves. Survive long enough, and you might finally find the rescue you’ve been hoping for.",
+    "tags": ["Windows", "Game Jam", "C#", "Unity"],
+    "link": "https://mtaisboss.itch.io/oceanfall",
+    "gradient": "linear-gradient(135deg, var(--accent-cyan), #06b6d4)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1nLzIzNTU3Mzg3LnBuZw==/original/3dLAn2.png"
+    ]
+  },
+  {
+    "title": "Pepsi Man Fan-made",
+    "description": "An endless runner pepsi man game created in two days",
+    "tags": ["Windows", "C#", "Unity"],
+    "link": "https://mtaisboss.itch.io/pepsiman-fanmade",
+    "gradient": "linear-gradient(135deg, var(--accent-blue), #1d4ed8)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1nLzI0ODE2MDIxLmpwZw==/original/Sn%2BRpx.jpg",
+      "https://img.itch.zone/aW1hZ2UvNDE2MzQ4Ny8yNDgxNTcwMS5wbmc=/347x500/9UvtRX.png",
+      "https://img.itch.zone/aW1hZ2UvNDE2MzQ4Ny8yNDgxNTcwMC5wbmc=/347x500/M4sL4t.png"
+    ]
+  },
+  {
+    "title": "Meowbit Invader",
+    "description": "A new virus is taking over your computer, it might seem impossible to beat it at first, but start taking actions and you see how things become easier...",
+    "tags": ["Windows", "Game Jam", "C#", "Unity"],
+    "link": "https://mtaisboss.itch.io/meowbit-invader",
+    "gradient": "linear-gradient(135deg, var(--accent-lime), #65a30d)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvMzczMjQ2MS8yMjI0NDM0NS5wbmc=/347x500/aHEC%2F%2B.png",
+      "https://img.itch.zone/aW1hZ2UvMzczMjQ2MS8yMjI0NDM0Ni5wbmc=/347x500/CJ9yMR.png"
+    ]
+  },
+  {
+    "title": "Doppelchain",
+    "description": "Record Yourself and solve puzzles!!",
+    "tags": ["Windows", "Game Jam", "C#", "Unity"],
+    "link": "https://mtaisboss.itch.io/doppelchain",
+    "gradient": "linear-gradient(135deg, var(--accent-coral), #e11d48)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1nLzIyNTUwMDcxLmpwZw==/original/3Euhvl.jpg",
+      "https://img.itch.zone/aW1hZ2UvMzc2Mzk3My8yMjU0OTYzMy5qcGc=/347x500/klDMRc.jpg",
+      "https://img.itch.zone/aW1hZ2UvMzc2Mzk3My8yMjU0OTYzNC5qcGc=/347x500/KfYIHa.jpg"
     ]
   },
   {
@@ -80,9 +136,9 @@
     "gradient": "linear-gradient(135deg, var(--accent-blue), #0891b2)",
     "btnText": "GitHub →",
     "images": [
-      "images/Projects/GameFramework.png",
-      "images/Projects/GameFramework1.png",
-      "images/Projects/GameFramework2.png"
+      "images/Projects/gameframework1.jpg",
+      "images/Projects/gameframework2.jpg",
+      "images/Projects/gameframework3.jpg"
     ]
   },
   {
@@ -93,9 +149,8 @@
     "gradient": "linear-gradient(135deg, var(--accent-cyan), #06b6d4)",
     "btnText": "GitHub →",
     "images": [
-      "images/Projects/Simple-3D-Renderer.png",
-      "images/Projects/Simple-3D-Renderer1.png",
-      "images/Projects/Simple-3D-Renderer2.png"
+      "images/Projects/3drenderer.jpg",
+      "images/Projects/3drenderer1.gif"
     ]
   },
   {
@@ -105,16 +160,12 @@
     "link": "https://github.com/MTAISBOSS/TowerDefense-SoftwareEngineering",
     "gradient": "linear-gradient(135deg, var(--accent-lime), #4d7c0f)",
     "btnText": "GitHub →",
-    "images": [
-      "images/Projects/TowerDefense-SoftwareEngineering.png",
-      "images/Projects/TowerDefense-SoftwareEngineering1.png",
-      "images/Projects/TowerDefense-SoftwareEngineering2.png"
-    ]
+    "images": []
   },
   {
     "title": "11 Lives",
-    "description": "A creative game project",
-    "tags": [],
+    "description": "Lose lives in order to pass through levels!!!",
+    "tags": ["Windows", "C#", "Unity"],
     "link": "https://mtaisboss.itch.io/11-lives",
     "gradient": "linear-gradient(135deg, var(--accent-purple), #7c3aed)",
     "btnText": "Play →",
@@ -123,48 +174,11 @@
       "https://img.itch.zone/aW1hZ2UvMTg1NDMwNC8xMDg4NzYxNC5wbmc=/347x500/6Bad52.png"
     ]
   },
-  {
-    "title": "Avoidant",
-    "description": "A creative game project",
-    "tags": [],
-    "link": "https://mtaisboss.itch.io/60",
-    "gradient": "linear-gradient(135deg, var(--accent-teal), #0d9488)",
-    "btnText": "Play →",
-    "images": [
-      "https://img.itch.zone/aW1hZ2UvMzcwNjY0NS8yMjA5ODMwOS5wbmc=/347x500/MWyPec.png",
-      "https://img.itch.zone/aW1hZ2UvMzcwNjY0NS8yMjA5ODMwOC5wbmc=/347x500/xw6N20.png",
-      "https://img.itch.zone/aW1hZ2UvMzcwNjY0NS8yMjA5ODMxMC5wbmc=/347x500/L3bA1n.png"
-    ]
-  },
-  {
-    "title": "Critical Winter",
-    "description": "A game where you are stranded in deep snow, and are bound to survive the radioactive hell",
-    "tags": [],
-    "link": "https://armazda.itch.io/critical-winter",
-    "gradient": "linear-gradient(135deg, var(--accent-blue), #2563eb)",
-    "btnText": "Play →",
-    "images": [
-      "https://img.itch.zone/aW1hZ2UvMzk2NjA3Mi8yNDEzMjcwNS5qcGc=/347x500/%2Fl0eqN.jpg",
-      "https://img.itch.zone/aW1hZ2UvMzk2NjA3Mi8yNDEzMjcwNi5qcGc=/347x500/H8YnLY.jpg"
-    ]
-  },
-  {
-    "title": "Doppelchain",
-    "description": "Record Yourself and solve puzzles!!",
-    "tags": [],
-    "link": "https://mtaisboss.itch.io/doppelchain",
-    "gradient": "linear-gradient(135deg, var(--accent-coral), #e11d48)",
-    "btnText": "Play →",
-    "images": [
-      "https://img.itch.zone/aW1nLzIyNTUwMDcxLmpwZw==/original/3Euhvl.jpg",
-      "https://img.itch.zone/aW1hZ2UvMzc2Mzk3My8yMjU0OTYzMy5qcGc=/347x500/klDMRc.jpg",
-      "https://img.itch.zone/aW1hZ2UvMzc2Mzk3My8yMjU0OTYzNC5qcGc=/347x500/KfYIHa.jpg"
-    ]
-  },
+
   {
     "title": "Electro City - The need of energy",
     "description": "The Protos are taking over the Electro city to charge their cities by using your city's energy...",
-    "tags": [],
+    "tags": ["Windows", "C#", "Unity"],
     "link": "https://mtaisboss.itch.io/electro-city",
     "gradient": "linear-gradient(135deg, var(--accent-yellow), #d97706)",
     "btnText": "Play →",
@@ -177,7 +191,7 @@
   {
     "title": "Logic Bomb",
     "description": "Find bombs and throw them away",
-    "tags": [],
+    "tags": ["Windows", "Game Jam", "C#", "Unity"],
     "link": "https://mtaisboss.itch.io/logic-bomb",
     "gradient": "linear-gradient(135deg, var(--accent-red), #dc2626)",
     "btnText": "Play →",
@@ -190,7 +204,7 @@
   {
     "title": "Memento Mori",
     "description": "A creative game project",
-    "tags": [],
+    "tags": ["Windows", "C#", "Unity"],
     "link": "https://mtaisboss.itch.io/memento-mori",
     "gradient": "linear-gradient(135deg, var(--accent-purple), #7c3aed)",
     "btnText": "Play →",
@@ -200,23 +214,11 @@
       "https://img.itch.zone/aW1hZ2UvMzgwMzgzNi8yMjY3NjEzNy5wbmc=/347x500/H0TY%2FJ.png"
     ]
   },
-  {
-    "title": "Meowbit Invader",
-    "description": "A creative game project",
-    "tags": [],
-    "link": "https://mtaisboss.itch.io/meowbit-invader",
-    "gradient": "linear-gradient(135deg, var(--accent-lime), #65a30d)",
-    "btnText": "Play →",
-    "images": [
-      "https://img.itch.zone/aW1nLzIyNjc3MDExLnBuZw==/original/fF%2B7s4.png",
-      "https://img.itch.zone/aW1hZ2UvMzczMjQ2MS8yMjI0NDM0NS5wbmc=/347x500/aHEC%2F%2B.png",
-      "https://img.itch.zone/aW1hZ2UvMzczMjQ2MS8yMjI0NDM0Ni5wbmc=/347x500/CJ9yMR.png"
-    ]
-  },
+
   {
     "title": "MTA Helix Jump",
     "description": "A creative game project",
-    "tags": [],
+    "tags": ["Windows", "C#", "Unity"],
     "link": "https://mtaisboss.itch.io/mta-helix-jump",
     "gradient": "linear-gradient(135deg, var(--accent-teal), #0d9488)",
     "btnText": "Play →",
@@ -225,36 +227,11 @@
       "https://img.itch.zone/aW1hZ2UvMTg1NDMzNC8xMDg4Nzg0Ni5wbmc=/347x500/%2FgXuwK.png"
     ]
   },
-  {
-    "title": "Oceanfall",
-    "description": "A creative game project",
-    "tags": [],
-    "link": "https://mtaisboss.itch.io/oceanfall",
-    "gradient": "linear-gradient(135deg, var(--accent-cyan), #06b6d4)",
-    "btnText": "Play →",
-    "images": [
-      "https://img.itch.zone/aW1nLzIzNTU3Mzg3LnBuZw==/original/3dLAn2.png",
-      "https://img.itch.zone/aW1hZ2UvMzk0OTU2MC8yMzU1NzAxNy5wbmc=/347x500/2qRIbt.png",
-      "https://img.itch.zone/aW1hZ2UvMzk0OTU2MC8yMzU1NzI4Ni5wbmc=/347x500/9wysAN.png"
-    ]
-  },
-  {
-    "title": "Pepsi Man Fan-made",
-    "description": "an endless runner pepsi man game",
-    "tags": [],
-    "link": "https://mtaisboss.itch.io/pepsiman-fanmade",
-    "gradient": "linear-gradient(135deg, var(--accent-blue), #1d4ed8)",
-    "btnText": "Play →",
-    "images": [
-      "https://img.itch.zone/aW1nLzI0ODE2MDIxLmpwZw==/original/Sn%2BRpx.jpg",
-      "https://img.itch.zone/aW1hZ2UvNDE2MzQ4Ny8yNDgxNTcwMS5wbmc=/347x500/9UvtRX.png",
-      "https://img.itch.zone/aW1hZ2UvNDE2MzQ4Ny8yNDgxNTcwMC5wbmc=/347x500/M4sL4t.png"
-    ]
-  },
+
   {
     "title": "The Blue Ice (Game Jam)",
-    "description": "A creative game project",
-    "tags": [],
+    "description": "Over the last decade, three NASA vessels reached Neptune and vanished without a trace.No distress signals. No debris. Just silence.Your mission is to locate the lost ships, extract their data cores, and discover what lies in the shadow of the ice giant.The crews are gone. The answers are waiting.",
+    "tags": ["Windows", "Game Jam", "C#", "Unity"],
     "link": "https://mtaisboss.itch.io/the-blue-ice",
     "gradient": "linear-gradient(135deg, var(--accent-blue), #2563eb)",
     "btnText": "Play →",
@@ -262,6 +239,31 @@
       "https://img.itch.zone/aW1hZ2UvNDMxMjM0NS8yNTc3Nzk1OC5wbmc=/347x500/NST3H1.png",
       "https://img.itch.zone/aW1hZ2UvNDMxMjM0NS8yNTc4MDE3MS5wbmc=/347x500/R5x9El.png",
       "https://img.itch.zone/aW1hZ2UvNDMxMjM0NS8yNTc4MDE3Ny5wbmc=/347x500/uGZHHp.png"
+    ]
+  },
+  {
+    "title": "Avoidant",
+    "description": "Created a game for a 60 minutes game jam",
+    "tags": ["Windows", "Game Jam", "C#", "Unity"],
+    "link": "https://mtaisboss.itch.io/60",
+    "gradient": "linear-gradient(135deg, var(--accent-teal), #0d9488)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvMzcwNjY0NS8yMjA5ODMwOS5wbmc=/347x500/MWyPec.png",
+      "https://img.itch.zone/aW1hZ2UvMzcwNjY0NS8yMjA5ODMwOC5wbmc=/347x500/xw6N20.png",
+      "https://img.itch.zone/aW1hZ2UvMzcwNjY0NS8yMjA5ODMxMC5wbmc=/347x500/L3bA1n.png"
+    ]
+  },
+  {
+    "title": "Critical Winter",
+    "description": "A game where you are stranded in deep snow, and are bound to survive the radioactive hell",
+    "tags": ["Windows", "Game Jam", "C#", "Unity"],
+    "link": "https://armazda.itch.io/critical-winter",
+    "gradient": "linear-gradient(135deg, var(--accent-blue), #2563eb)",
+    "btnText": "Play →",
+    "images": [
+      "https://img.itch.zone/aW1hZ2UvMzk2NjA3Mi8yNDEzMjcwNS5qcGc=/347x500/%2Fl0eqN.jpg",
+      "https://img.itch.zone/aW1hZ2UvMzk2NjA3Mi8yNDEzMjcwNi5qcGc=/347x500/H8YnLY.jpg"
     ]
   }
 ]

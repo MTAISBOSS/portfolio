@@ -12,7 +12,7 @@ class AudioManager {
       audio.volume = volume * this.masterVolume;
       audio.loop = loop;
 
-      audio.addEventListener("canplaythrough", () => {
+      audio.addEventListener("loadeddata", () => {
         this.sounds[name] = audio;
         resolve(audio);
       });

@@ -29,22 +29,30 @@ const modelData = [
 let loadedModels = {};
 let tileTexture = null;
 
-function initializeTileLoading() {
-  const tileTextureLoader = new THREE.TextureLoader();
+async function initializeTileLoading() {
+  return new Promise((resolve, reject) => {
+    const tileTextureLoader = new THREE.TextureLoader();
 
-  tileTextureLoader.load(
-    "models/colormap.png",
-    (texture) => {
-      tileTexture = texture;
-      tileTexture.colorSpace = THREE.SRGBColorSpace;
-      console.log("Tile texture loaded successfully");
-    },
-    undefined,
-    (err) => {
-      console.error("Tile texture failed to load:", err);
-      tileTexture = null;
-    },
-  );
+    tileTextureLoader.load(
+      "models/colormap.png",
+
+      (texture) => {
+        tileTexture = texture;
+        tileTexture.colorSpace = THREE.SRGBColorSpace;
+
+        console.log("Tile texture loaded successfully");
+
+        resolve(texture);
+      },
+
+      undefined,
+
+      (err) => {
+        console.error("Tile texture failed to load:", err);
+        reject(err);
+      },
+    );
+  });
 }
 
 function parseDataLine(line) {
@@ -63,43 +71,49 @@ function parseDataLine(line) {
   return { name, position, rotation };
 }
 
-function loadModel(name) {
+const fbxLoaderTiles = new THREE.FBXLoader();
+
+async function loadModel(name) {
   return new Promise((resolve) => {
     if (loadedModels[name]) {
-      const clone = loadedModels[name].clone();
-      resolve(clone);
-    } else {
-      const fbxLoaderTiles = new THREE.FBXLoader();
-      fbxLoaderTiles.load(
-        `models/${name}.fbx`,
-        (fbx) => {
-          fbx.traverse((child) => {
-            if (child.isMesh) {
-              const newMaterial = new THREE.MeshStandardMaterial({
-                color: 0xffffff,
-                roughness: 0.4,
-                metalness: 0.1,
-              });
-              if (tileTexture) {
-                newMaterial.map = tileTexture;
-                newMaterial.needsUpdate = true;
-              }
-              child.castShadow = true;
-              child.receiveShadow = true;
-              child.material = newMaterial;
-            }
-          });
-          loadedModels[name] = fbx;
-          const clone = fbx.clone();
-          resolve(clone);
-        },
-        undefined,
-        (error) => {
-          console.error("Tile model load error:", name, error);
-          resolve(null);
-        },
-      );
+      resolve(loadedModels[name].clone());
+      return;
     }
+
+    fbxLoaderTiles.load(
+      `models/${name}.fbx`,
+
+      (fbx) => {
+        fbx.traverse((child) => {
+          if (child.isMesh) {
+            const newMaterial = new THREE.MeshStandardMaterial({
+              color: 0xffffff,
+              roughness: 0.4,
+              metalness: 0.1,
+            });
+
+            if (tileTexture) {
+              newMaterial.map = tileTexture;
+            }
+
+            child.castShadow = true;
+            child.receiveShadow = true;
+            child.material = newMaterial;
+          }
+        });
+
+        loadedModels[name] = fbx;
+
+        resolve(fbx.clone());
+      },
+
+      undefined,
+
+      (error) => {
+        console.error("Tile model load error:", name, error);
+        resolve(null);
+      },
+    );
   });
 }
 

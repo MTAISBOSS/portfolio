@@ -346,8 +346,7 @@
             </h3>
             <div style="display: flex; flex-wrap: wrap; gap: 8px">
               <span class="tag">ECS</span
-              ><span class="tag">Data-Oriented Design</span
-              ><span class="tag">Scene Management</span>
+              ><span class="tag">Data-Oriented Design</span>
             </div>
           </div>
           <div class="skill-card fade-in">
@@ -392,7 +391,7 @@
               <span class="tag tag-lime">C++</span
               ><span class="tag tag-lime">C#</span
               ><span class="tag">Python</span
-              ><span class="tag">JavaScript</span>
+              ><span class="tag">JavaScript</span> <span class="tag">Lua</span>
             </div>
           </div>
           <div class="skill-card fade-in">
@@ -425,8 +424,9 @@
             </h3>
             <div style="display: flex; flex-wrap: wrap; gap: 8px">
               <span class="tag tag-coral">Unity</span
-              ><span class="tag">Git</span><span class="tag">ImGui</span
-              ><span class="tag">Blender</span>
+              ><span class="tag">Git</span>
+              <span class="tag">Blender</span>
+              <span class="tag">CI/CD</span>
             </div>
           </div>
         </div>
@@ -445,7 +445,7 @@
       },
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
     );
-    
+
     // Initial observe for existing fade-in elements
     document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
@@ -475,30 +475,42 @@
       function createProjectElement(project) {
         const el = document.createElement("div");
         el.className = "project-card fade-in";
-        
+
         const hasImages = project.images && project.images.length > 0;
-        
-        let projectImageHTML = '';
+
+        let projectImageHTML = "";
         if (hasImages) {
           // Create carousel with images
           projectImageHTML = `
             <div class="project-image">
               <div class="project-image-carousel">
-                ${project.images.map((img, idx) => `
-                  <div class="project-image-slide ${idx === 0 ? 'active' : ''}">
+                ${project.images
+                  .map(
+                    (img, idx) => `
+                  <div class="project-image-slide ${idx === 0 ? "active" : ""}">
                     <img src="${img}" alt="Project image ${idx + 1}" />
                   </div>
-                `).join('')}
+                `,
+                  )
+                  .join("")}
               </div>
-              ${project.images.length > 1 ? `
+              ${
+                project.images.length > 1
+                  ? `
                 <div class="image-indicators">
-                  ${project.images.map((_, idx) => `
-                    <div class="image-indicator ${idx === 0 ? 'active' : ''}" data-index="${idx}"></div>
-                  `).join('')}
+                  ${project.images
+                    .map(
+                      (_, idx) => `
+                    <div class="image-indicator ${idx === 0 ? "active" : ""}" data-index="${idx}"></div>
+                  `,
+                    )
+                    .join("")}
                 </div>
                 <button class="image-nav-button prev" data-action="prev">‹</button>
                 <button class="image-nav-button next" data-action="next">›</button>
-              ` : ''}
+              `
+                  : ""
+              }
             </div>
           `;
         } else {
@@ -511,7 +523,7 @@
             </div>
           `;
         }
-        
+
         el.innerHTML = `
           ${projectImageHTML}
           <div class="project-content">
@@ -520,42 +532,44 @@
             <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">${project.tags.map((t) => `<span class="tag ${t === "C++" ? "tag-lime" : ""} ${t === "Unity" ? "tag-coral" : ""}">${t}</span>`).join("")}</div>
             <a href="${project.link}" target="_blank" class="btn-primary">${project.btnText}</a>
           </div>`;
-        
+
         // Add carousel navigation logic
         if (hasImages && project.images.length > 1) {
           let currentImageIndex = 0;
-          
+
           const updateCarousel = (index) => {
             const slides = el.querySelectorAll(".project-image-slide");
             const indicators = el.querySelectorAll(".image-indicator");
-            
+
             slides.forEach((slide, idx) => {
               slide.classList.toggle("active", idx === index);
             });
-            
+
             indicators.forEach((indicator, idx) => {
               indicator.classList.toggle("active", idx === index);
             });
-            
+
             currentImageIndex = index;
           };
-          
+
           const prevBtn = el.querySelector(".image-nav-button.prev");
           const nextBtn = el.querySelector(".image-nav-button.next");
           const indicators = el.querySelectorAll(".image-indicator");
-          
+
           prevBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            const newIndex = (currentImageIndex - 1 + project.images.length) % project.images.length;
+            const newIndex =
+              (currentImageIndex - 1 + project.images.length) %
+              project.images.length;
             updateCarousel(newIndex);
           });
-          
+
           nextBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             const newIndex = (currentImageIndex + 1) % project.images.length;
             updateCarousel(newIndex);
           });
-          
+
           indicators.forEach((indicator, idx) => {
             indicator.addEventListener("click", (e) => {
               e.stopPropagation();
@@ -563,7 +577,7 @@
             });
           });
         }
-        
+
         // Observe new element immediately
         observer.observe(el);
         // Make it visible immediately if it's in view
@@ -572,13 +586,16 @@
       }
 
       function updateButtonState() {
-        let buttonContainer = document.getElementById("projects-button-container");
+        let buttonContainer = document.getElementById(
+          "projects-button-container",
+        );
         const hasMore = displayedCount < allProjects.length;
 
         if (!buttonContainer) {
           buttonContainer = document.createElement("div");
           buttonContainer.id = "projects-button-container";
-          buttonContainer.style.cssText = "display: flex; justify-content: center; margin-top: 48px;";
+          buttonContainer.style.cssText =
+            "display: flex; justify-content: center; margin-top: 48px;";
           grid.parentNode.insertBefore(buttonContainer, grid.nextSibling);
         }
 
@@ -623,10 +640,16 @@
               updateButtonState();
             } else {
               // Show more: add next 3 with staggered animations
-              const nextBatch = allProjects.slice(displayedCount, displayedCount + itemsPerPage);
+              const nextBatch = allProjects.slice(
+                displayedCount,
+                displayedCount + itemsPerPage,
+              );
               nextBatch.forEach((project, index) => {
                 const element = createProjectElement(project);
-                element.classList.add("project-card-entrance", `delay-${index + 1}`);
+                element.classList.add(
+                  "project-card-entrance",
+                  `delay-${index + 1}`,
+                );
                 grid.appendChild(element);
               });
               displayedCount += nextBatch.length;
@@ -643,12 +666,15 @@
         .then((r) => r.json())
         .then((data) => {
           allProjects = data;
-          
+
           // Render initial 3 projects with staggered animations
           const initialProjects = allProjects.slice(0, itemsPerPage);
           initialProjects.forEach((p, index) => {
             const element = createProjectElement(p);
-            element.classList.add("project-card-entrance", `delay-${index + 1}`);
+            element.classList.add(
+              "project-card-entrance",
+              `delay-${index + 1}`,
+            );
             grid.appendChild(element);
           });
           displayedCount = initialProjects.length;
